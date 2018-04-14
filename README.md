@@ -1,5 +1,6 @@
 # nexrad-radar-data
 -
+
 ### v0.1.0
 > A javascript implementation for decoding Nexrad Level II radar archive files. It currently does not support decoding bzip compressed radar data, or non-highres radar data. 
 
@@ -43,7 +44,7 @@ Alias for **setScan**
 ### getHighresReflectivity()
 Returns an Object of radar reflectivity data for the current **elevation** and **scan** in the following format
 
-``` json
+``` javascript
 { 
   message_size: Number,
   channel: Number,
@@ -148,7 +149,7 @@ Returns an Object of radar reflectivity data for the current **elevation** and *
 ### getHighresVelocity()
 Returns an Object of radar velocity data for the current **elevation** and **scan** in the following format
 
-``` json
+``` javascript
 { 
   message_size: Number,
   channel: Number,
@@ -253,7 +254,7 @@ Returns an Object of radar velocity data for the current **elevation** and **sca
 ### getHighresSpectrum()
 Returns an Object of radar spectrum data for the current **elevation** and **scan** in the following format
 
-``` json
+``` javascript
 { 
   message_size: Number,
   channel: Number,
@@ -358,7 +359,7 @@ Returns an Object of radar spectrum data for the current **elevation** and **sca
 ### getHighresDiffReflectivity()
 Returns an Object of radar diff reflectivity data for the current **elevation** and **scan** in the following format
 
-``` json
+``` javascript
 { 
   message_size: Number,
   channel: Number,
@@ -463,7 +464,7 @@ Returns an Object of radar diff reflectivity data for the current **elevation** 
 ### getHighresDiffPhase()
 Returns an Object of radar diff phase data for the current **elevation** and **scan** in the following format
 
-``` json
+``` javascript
 { 
   message_size: Number,
   channel: Number,
@@ -568,7 +569,7 @@ Returns an Object of radar diff phase data for the current **elevation** and **s
 ### getHighresCorrelationCoefficient()
 Returns an Object of radar correlation coefficient data for the current **elevation** and **scan** in the following format
 
-``` json
+``` javascript
 { 
   message_size: Number,
   channel: Number,
