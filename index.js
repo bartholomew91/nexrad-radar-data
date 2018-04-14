@@ -27,32 +27,32 @@ class Level2Radar {
 
     // return reflectivity data for the current elevation and scan
     getHighresReflectivity() {
-        return this.reflectivity_highres[this.elevation][this.scan]
+        return this.reflectivity_highres[this.elevation][this.scan].record.reflect
     }
 
     // return velocity data for the current elevation and scan
     getHighresVelocity() {
-        return this.velocity_highres[this.elevation][this.scan]
+        return this.velocity_highres[this.elevation][this.scan].record.velocity
     }
 
     // return spectrum data for the current elevation and scan
     getHighresSpectrum() {
-        return this.spectrum_highres[this.elevation][this.scan]
+        return this.spectrum_highres[this.elevation][this.scan].record.spectrum
     }
 
     // return diff reflectivity data for the current elevation and scan
     getHighresDiffReflectivity() {
-        return this.diff_reflectivity_highres[this.elevation][this.scan]
+        return this.diff_reflectivity_highres[this.elevation][this.scan].record.zdr
     }
 
     // return diff phase data for the current elevation and scan
     getHighresDiffPhase() {
-        return this.diff_phase_highres[this.elevation][this.scan]
+        return this.diff_phase_highres[this.elevation][this.scan].record.phi
     }
 
     // return correlation coefficient data for the current elevation and scan
     getHighresCorrelationCoefficient() {
-        return this.correlation_coefficient_highres[this.elevation][this.scan]
+        return this.correlation_coefficient_highres[this.elevation][this.scan].record.rho
     }
 
     /**

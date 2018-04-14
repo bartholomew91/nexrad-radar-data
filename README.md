@@ -46,103 +46,14 @@ Returns an Object of radar reflectivity data for the current **elevation** and *
 
 ``` javascript
 { 
-  message_size: Number,
-  channel: Number,
-  message_type: Number,
-  id_sequence: Number,
-  message_julian_date: Number,
-  message_mseconds: Number,
-  segment_count: Number,
-  segment_number: Number,
-  record: { 
-     id: String,
-     mseconds: Number,
-     julian_date: Number,
-     radial_number: Number,
-     azimuth: Float,
-     compress_idx: Number,
-     sp: Number,
-     radial_length: Number,
-     ars: Number,
-     rs: Number,
-     elevation_number: Number,
-     cut: Number,
-     elevation: {
-        block_type: String,
-        name: String,
-        size: Number,
-        atmos: Number,
-        calibration: Float 
-     },
-     rsbs: Number,
-     aim: Number,
-     dcount: Number,
-     volume: {
-        block_type: String,
-        name: String,
-        size: Number,
-        version_major: Number,
-        version_miner: Number,
-        latitude: Float,
-        longitude: Float,
-        elevation: Number,
-        feedhorn_height: Number,
-        calibration: Float,
-        tx_horizontal: Float,
-        tx_vertical: Float,
-        differential_reflectivity: Float,
-        volume_coverage_pattern: Number 
-     },
-     radial: {
-        block_type: String,
-        name: String,
-        size: Number,
-        unambiguous_range: Number,
-        horizontal_noise_level: Float,
-        vertical_noise_level: Float,
-        nyquist_velocity: Number
-     },
-     reflect: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Number,
-        addoffset: Number,
-        offset: Number
-     },
-     velocity: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Number,
-        addoffset: Number,
-        offset: Number
-     },
-     spectrum: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Float,
-        addoffset: Number,
-        offset: Number
-     },
-     zdr: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Number,
-        addoffset: Float,
-        offset: Number
-     }
-  }
+  	gate_count: Number,
+	first_gate: Number,
+	gate_size: Number,
+	rf_threshold: Number,
+	snr_threshold: Number,
+	scale: Number,
+	addoffset: Float,
+	offset: Number
 }
 ```
 
@@ -151,103 +62,14 @@ Returns an Object of radar velocity data for the current **elevation** and **sca
 
 ``` javascript
 { 
-  message_size: Number,
-  channel: Number,
-  message_type: Number,
-  id_sequence: Number,
-  message_julian_date: Number,
-  message_mseconds: Number,
-  segment_count: Number,
-  segment_number: Number,
-  record: { 
-     id: String,
-     mseconds: Number,
-     julian_date: Number,
-     radial_number: Number,
-     azimuth: Float,
-     compress_idx: Number,
-     sp: Number,
-     radial_length: Number,
-     ars: Number,
-     rs: Number,
-     elevation_number: Number,
-     cut: Number,
-     elevation: {
-        block_type: String,
-        name: String,
-        size: Number,
-        atmos: Number,
-        calibration: Float 
-     },
-     rsbs: Number,
-     aim: Number,
-     dcount: Number,
-     volume: {
-        block_type: String,
-        name: String,
-        size: Number,
-        version_major: Number,
-        version_miner: Number,
-        latitude: Float,
-        longitude: Float,
-        elevation: Number,
-        feedhorn_height: Number,
-        calibration: Float,
-        tx_horizontal: Float,
-        tx_vertical: Float,
-        differential_reflectivity: Float,
-        volume_coverage_pattern: Number 
-     },
-     radial: {
-        block_type: String,
-        name: String,
-        size: Number,
-        unambiguous_range: Number,
-        horizontal_noise_level: Float,
-        vertical_noise_level: Float,
-        nyquist_velocity: Number
-     },
-     reflect: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Number,
-        addoffset: Number,
-        offset: Number
-     },
-     velocity: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Number,
-        addoffset: Number,
-        offset: Number
-     },
-     spectrum: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Float,
-        addoffset: Number,
-        offset: Number
-     },
-     zdr: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Number,
-        addoffset: Float,
-        offset: Number
-     }
-  }
+  	gate_count: Number,
+	first_gate: Number,
+	gate_size: Number,
+	rf_threshold: Number,
+	snr_threshold: Number,
+	scale: Number,
+	addoffset: Float,
+	offset: Number
 }
 ```
 
@@ -256,103 +78,14 @@ Returns an Object of radar spectrum data for the current **elevation** and **sca
 
 ``` javascript
 { 
-  message_size: Number,
-  channel: Number,
-  message_type: Number,
-  id_sequence: Number,
-  message_julian_date: Number,
-  message_mseconds: Number,
-  segment_count: Number,
-  segment_number: Number,
-  record: { 
-     id: String,
-     mseconds: Number,
-     julian_date: Number,
-     radial_number: Number,
-     azimuth: Float,
-     compress_idx: Number,
-     sp: Number,
-     radial_length: Number,
-     ars: Number,
-     rs: Number,
-     elevation_number: Number,
-     cut: Number,
-     elevation: {
-        block_type: String,
-        name: String,
-        size: Number,
-        atmos: Number,
-        calibration: Float 
-     },
-     rsbs: Number,
-     aim: Number,
-     dcount: Number,
-     volume: {
-        block_type: String,
-        name: String,
-        size: Number,
-        version_major: Number,
-        version_miner: Number,
-        latitude: Float,
-        longitude: Float,
-        elevation: Number,
-        feedhorn_height: Number,
-        calibration: Float,
-        tx_horizontal: Float,
-        tx_vertical: Float,
-        differential_reflectivity: Float,
-        volume_coverage_pattern: Number 
-     },
-     radial: {
-        block_type: String,
-        name: String,
-        size: Number,
-        unambiguous_range: Number,
-        horizontal_noise_level: Float,
-        vertical_noise_level: Float,
-        nyquist_velocity: Number
-     },
-     reflect: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Number,
-        addoffset: Number,
-        offset: Number
-     },
-     velocity: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Number,
-        addoffset: Number,
-        offset: Number
-     },
-     spectrum: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Float,
-        addoffset: Number,
-        offset: Number
-     },
-     zdr: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Number,
-        addoffset: Float,
-        offset: Number
-     }
-  }
+  	gate_count: Number,
+	first_gate: Number,
+	gate_size: Number,
+	rf_threshold: Number,
+	snr_threshold: Number,
+	scale: Number,
+	addoffset: Float,
+	offset: Number
 }
 ```
 
@@ -361,103 +94,14 @@ Returns an Object of radar diff reflectivity data for the current **elevation** 
 
 ``` javascript
 { 
-  message_size: Number,
-  channel: Number,
-  message_type: Number,
-  id_sequence: Number,
-  message_julian_date: Number,
-  message_mseconds: Number,
-  segment_count: Number,
-  segment_number: Number,
-  record: { 
-     id: String,
-     mseconds: Number,
-     julian_date: Number,
-     radial_number: Number,
-     azimuth: Float,
-     compress_idx: Number,
-     sp: Number,
-     radial_length: Number,
-     ars: Number,
-     rs: Number,
-     elevation_number: Number,
-     cut: Number,
-     elevation: {
-        block_type: String,
-        name: String,
-        size: Number,
-        atmos: Number,
-        calibration: Float 
-     },
-     rsbs: Number,
-     aim: Number,
-     dcount: Number,
-     volume: {
-        block_type: String,
-        name: String,
-        size: Number,
-        version_major: Number,
-        version_miner: Number,
-        latitude: Float,
-        longitude: Float,
-        elevation: Number,
-        feedhorn_height: Number,
-        calibration: Float,
-        tx_horizontal: Float,
-        tx_vertical: Float,
-        differential_reflectivity: Float,
-        volume_coverage_pattern: Number 
-     },
-     radial: {
-        block_type: String,
-        name: String,
-        size: Number,
-        unambiguous_range: Number,
-        horizontal_noise_level: Float,
-        vertical_noise_level: Float,
-        nyquist_velocity: Number
-     },
-     reflect: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Number,
-        addoffset: Number,
-        offset: Number
-     },
-     velocity: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Number,
-        addoffset: Number,
-        offset: Number
-     },
-     spectrum: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Float,
-        addoffset: Number,
-        offset: Number
-     },
-     zdr: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Number,
-        addoffset: Float,
-        offset: Number
-     }
-  }
+  	gate_count: Number,
+	first_gate: Number,
+	gate_size: Number,
+	rf_threshold: Number,
+	snr_threshold: Number,
+	scale: Number,
+	addoffset: Float,
+	offset: Number
 }
 ```
 
@@ -466,103 +110,14 @@ Returns an Object of radar diff phase data for the current **elevation** and **s
 
 ``` javascript
 { 
-  message_size: Number,
-  channel: Number,
-  message_type: Number,
-  id_sequence: Number,
-  message_julian_date: Number,
-  message_mseconds: Number,
-  segment_count: Number,
-  segment_number: Number,
-  record: { 
-     id: String,
-     mseconds: Number,
-     julian_date: Number,
-     radial_number: Number,
-     azimuth: Float,
-     compress_idx: Number,
-     sp: Number,
-     radial_length: Number,
-     ars: Number,
-     rs: Number,
-     elevation_number: Number,
-     cut: Number,
-     elevation: {
-        block_type: String,
-        name: String,
-        size: Number,
-        atmos: Number,
-        calibration: Float 
-     },
-     rsbs: Number,
-     aim: Number,
-     dcount: Number,
-     volume: {
-        block_type: String,
-        name: String,
-        size: Number,
-        version_major: Number,
-        version_miner: Number,
-        latitude: Float,
-        longitude: Float,
-        elevation: Number,
-        feedhorn_height: Number,
-        calibration: Float,
-        tx_horizontal: Float,
-        tx_vertical: Float,
-        differential_reflectivity: Float,
-        volume_coverage_pattern: Number 
-     },
-     radial: {
-        block_type: String,
-        name: String,
-        size: Number,
-        unambiguous_range: Number,
-        horizontal_noise_level: Float,
-        vertical_noise_level: Float,
-        nyquist_velocity: Number
-     },
-     reflect: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Number,
-        addoffset: Number,
-        offset: Number
-     },
-     velocity: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Number,
-        addoffset: Number,
-        offset: Number
-     },
-     spectrum: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Float,
-        addoffset: Number,
-        offset: Number
-     },
-     zdr: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Number,
-        addoffset: Float,
-        offset: Number
-     }
-  }
+  	gate_count: Number,
+	first_gate: Number,
+	gate_size: Number,
+	rf_threshold: Number,
+	snr_threshold: Number,
+	scale: Number,
+	addoffset: Float,
+	offset: Number
 }
 ```
 
@@ -571,103 +126,14 @@ Returns an Object of radar correlation coefficient data for the current **elevat
 
 ``` javascript
 { 
-  message_size: Number,
-  channel: Number,
-  message_type: Number,
-  id_sequence: Number,
-  message_julian_date: Number,
-  message_mseconds: Number,
-  segment_count: Number,
-  segment_number: Number,
-  record: { 
-     id: String,
-     mseconds: Number,
-     julian_date: Number,
-     radial_number: Number,
-     azimuth: Float,
-     compress_idx: Number,
-     sp: Number,
-     radial_length: Number,
-     ars: Number,
-     rs: Number,
-     elevation_number: Number,
-     cut: Number,
-     elevation: {
-        block_type: String,
-        name: String,
-        size: Number,
-        atmos: Number,
-        calibration: Float 
-     },
-     rsbs: Number,
-     aim: Number,
-     dcount: Number,
-     volume: {
-        block_type: String,
-        name: String,
-        size: Number,
-        version_major: Number,
-        version_miner: Number,
-        latitude: Float,
-        longitude: Float,
-        elevation: Number,
-        feedhorn_height: Number,
-        calibration: Float,
-        tx_horizontal: Float,
-        tx_vertical: Float,
-        differential_reflectivity: Float,
-        volume_coverage_pattern: Number 
-     },
-     radial: {
-        block_type: String,
-        name: String,
-        size: Number,
-        unambiguous_range: Number,
-        horizontal_noise_level: Float,
-        vertical_noise_level: Float,
-        nyquist_velocity: Number
-     },
-     reflect: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Number,
-        addoffset: Number,
-        offset: Number
-     },
-     velocity: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Number,
-        addoffset: Number,
-        offset: Number
-     },
-     spectrum: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Float,
-        addoffset: Number,
-        offset: Number
-     },
-     zdr: {
-        gate_count: Number,
-        first_gate: Number,
-        gate_size: Number,
-        rf_threshold: Number,
-        snr_threshold: Number,
-        scale: Number,
-        addoffset: Float,
-        offset: Number
-     }
-  }
+  	gate_count: Number,
+	first_gate: Number,
+	gate_size: Number,
+	rf_threshold: Number,
+	snr_threshold: Number,
+	scale: Number,
+	addoffset: Float,
+	offset: Number
 }
 ```
 
