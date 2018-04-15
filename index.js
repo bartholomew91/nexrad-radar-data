@@ -25,6 +25,10 @@ class Level2Radar {
         this.setScan(sweep)
     }
 
+    getAzimuth() {
+        return this.reflectivity_highres[this.elevation][this.scan].record.azimuth
+    }
+
     // return reflectivity data for the current elevation and scan
     getHighresReflectivity() {
         return this.reflectivity_highres[this.elevation][this.scan].record.reflect

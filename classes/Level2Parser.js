@@ -26,6 +26,20 @@ class Level2Parser {
         return this._raf.read()
     }
 
+    getDataBlockInt(skip) {
+        this._raf.seek(this._dbp + this._record_offset + MESSAGE_HEADER_SIZE)
+        this._raf.skip(skip)
+
+        return this._raf.readInt()
+    }
+
+    getDataBlockBytes(skip, size) {
+        this._raf.seek(this._dbp + this._record_offset + MESSAGE_HEADER_SIZE)
+        this._raf.skip(skip)
+
+        return this._raf.read(size)
+    }
+
     getDataBlockShort(skip) {
         this._raf.seek(this._dbp + this._record_offset + MESSAGE_HEADER_SIZE)
         this._raf.skip(skip)

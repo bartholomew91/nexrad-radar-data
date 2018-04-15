@@ -1,7 +1,7 @@
 # nexrad-radar-data
 -
 
-### v0.1.0
+### v0.2.0
 > A javascript implementation for decoding Nexrad Level II radar archive files. It currently does not support decoding bzip compressed radar data, or non-highres radar data. 
 
 You can find more information on how radar data is encoded at [NOAA](https://www.roc.noaa.gov/WSR88D/BuildInfo/Files.aspx)
@@ -9,9 +9,10 @@ You can find more information on how radar data is encoded at [NOAA](https://www
 ## Contents
 1. [Install](#install)
 2. [Usage](#usage)
-3. [API](#Aapi)
-4. [ToDo](#todo)
-5. [License](#license)
+3. [API](#api)
+4. [Known Issues](#known-issues)
+5. [ToDo](#todo)
+6. [License](#license)
 
 
 ## Install
@@ -52,8 +53,9 @@ Returns an Object of radar reflectivity data for the current **elevation** and *
 	rf_threshold: Number,
 	snr_threshold: Number,
 	scale: Number,
-	addoffset: Float,
-	offset: Number
+	offset: Number,
+	data_offset: Number,
+	moment_data: Array
 }
 ```
 
@@ -68,8 +70,9 @@ Returns an Object of radar velocity data for the current **elevation** and **sca
 	rf_threshold: Number,
 	snr_threshold: Number,
 	scale: Number,
-	addoffset: Float,
-	offset: Number
+	offset: Number,
+	data_offset: Number,
+	moment_data: Array
 }
 ```
 
@@ -84,8 +87,9 @@ Returns an Object of radar spectrum data for the current **elevation** and **sca
 	rf_threshold: Number,
 	snr_threshold: Number,
 	scale: Number,
-	addoffset: Float,
-	offset: Number
+	offset: Number,
+	data_offset: Number,
+	moment_data: Array
 }
 ```
 
@@ -100,8 +104,9 @@ Returns an Object of radar diff reflectivity data for the current **elevation** 
 	rf_threshold: Number,
 	snr_threshold: Number,
 	scale: Number,
-	addoffset: Float,
-	offset: Number
+	offset: Number,
+	data_offset: Number,
+	moment_data: Array
 }
 ```
 
@@ -116,8 +121,9 @@ Returns an Object of radar diff phase data for the current **elevation** and **s
 	rf_threshold: Number,
 	snr_threshold: Number,
 	scale: Number,
-	addoffset: Float,
-	offset: Number
+	offset: Number,
+	data_offset: Number,
+	moment_data: Array
 }
 ```
 
@@ -132,10 +138,13 @@ Returns an Object of radar correlation coefficient data for the current **elevat
 	rf_threshold: Number,
 	snr_threshold: Number,
 	scale: Number,
-	addoffset: Float,
-	offset: Number
+	offset: Number,
+	data_offset: Number,
+	moment_data: Array
 }
 ```
+## Known Issues
+1. RHO moment data parsing is not working
 
 ## ToDo
 * Add bZip data decompression for newer archives

@@ -99,28 +99,48 @@ class Level2Record {
                 gate_size: parser.getDataBlockShort(12),
                 rf_threshold: parser.getDataBlockShort(14),
                 snr_threshold: parser.getDataBlockShort(16),
-                scale: parser.getDataBlockFloat(20),
-                addoffset: parser.getDataBlockFloat(24),
-                offset: data_block_pointer + 28
+                scale: parser.getDataBlockInt(20),
+                offset: parser.getDataBlockInt(24),
+                data_offset: data_block_pointer + 28,
+                moment_data: []
             }
             
             switch(type) {
                 case 'REF':
+                    for(let i = 28; i <= 1867; i += 4) {
+                        data.moment_data.push((parser.getDataBlockInt(i) - data.offset) / data.scale)
+                    }
                     record.reflect = data
                     break
                 case 'VEL':
+                    for(let i = 28; i <= 1227; i += 4) {
+                        data.moment_data.push((parser.getDataBlockInt(i) - data.offset) / data.scale)
+                    }
                     record.velocity = data
                     break
                 case 'SW':
+                    for(let i = 28; i <= 1227; i += 4) {
+                        data.moment_data.push((parser.getDataBlockInt(i) - data.offset) / data.scale)
+                    }
                     record.spectrum = data
                     break
                 case 'ZDR':
+                    for(let i = 28; i <= 1227; i += 4) {
+                        data.moment_data.push((parser.getDataBlockInt(i) - data.offset) / data.scale)
+                    }
                     record.zdr = data
                     break
-                case 'PHI':
+                case 'PHI':  
+                    for(let i = 28; i <= 1227; i += 4) {
+                        data.moment_data.push((parser.getDataBlockInt(i) - data.offset) / data.scale)
+                    }
                     record.phi = data
                     break
                 case 'RHO':
+                    // RHO - getting indexing errors - !!FIX!!
+                    /* for(let i = 28; i <= 1227; i += 4) {
+                        data.moment_data.push((parser.getDataBlockInt(i) - data.offset) / data.scale)
+                    } */
                     record.rho = data
                     break
             }
