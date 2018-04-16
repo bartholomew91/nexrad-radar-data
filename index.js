@@ -25,38 +25,54 @@ class Level2Radar {
         this.setScan(sweep)
     }
 
-    getAzimuth() {
-        return this.reflectivity_highres[this.elevation][this.scan].record.azimuth
+    getAzimuth(scan) {
+        if(scan) {
+            return this.data[this.elevation][scan].record.azimuth
+        } else {
+            return null
+        }
+    }
+
+    getScans() {
+        return this.data[this.elevation].length
     }
 
     // return reflectivity data for the current elevation and scan
-    getHighresReflectivity() {
-        return this.reflectivity_highres[this.elevation][this.scan].record.reflect
+    getHighresReflectivity(scan) {
+        if(scan) {
+            return this.data[this.elevation][scan].record.reflect
+        } else {
+            let scans = []
+            for(let i = 0; i < this.data[this.elevation].length; i++) {
+                scans.push(this.data[this.elevation][i].record.reflect)
+            }
+            return scans
+        }
     }
 
     // return velocity data for the current elevation and scan
     getHighresVelocity() {
-        return this.velocity_highres[this.elevation][this.scan].record.velocity
+        return this.data[this.elevation][this.scan].record.velocity
     }
 
     // return spectrum data for the current elevation and scan
     getHighresSpectrum() {
-        return this.spectrum_highres[this.elevation][this.scan].record.spectrum
+        return this.data[this.elevation][this.scan].record.spectrum
     }
 
     // return diff reflectivity data for the current elevation and scan
     getHighresDiffReflectivity() {
-        return this.diff_reflectivity_highres[this.elevation][this.scan].record.zdr
+        return this.data[this.elevation][this.scan].record.zdr
     }
 
     // return diff phase data for the current elevation and scan
     getHighresDiffPhase() {
-        return this.diff_phase_highres[this.elevation][this.scan].record.phi
+        return this.data[this.elevation][this.scan].record.phi
     }
 
     // return correlation coefficient data for the current elevation and scan
     getHighresCorrelationCoefficient() {
-        return this.correlation_coefficient_highres[this.elevation][this.scan].record.rho
+        return this.data[this.elevation][this.scan].record.rho
     }
 
     /**
@@ -73,12 +89,7 @@ class Level2Radar {
              * buffer.
              */
             new RandomAccessFile(file).then(raf => {
-                let high_reflectivity = []
-                let high_velocity = []
-                let high_spectrum = []
-                let high_diff_reflectivity = []
-                let high_diff_phase = []
-                let high_corre_coefficient = []
+                let data = []
 
                 raf.endianOrder(BIG_ENDIAN) // Set binary ordering to Big Endian
                 raf.seek(FILE_HEADER_SIZE) // Jump to the bytes at 24, past the file header
@@ -105,25 +116,18 @@ class Level2Radar {
                     // skip any messages that aren't type of 1 (generic radar data) or 31 (highres radar data)
                     if(r.message_type != 1 && r.message_type != 31) continue
 
-                    // If data is found, push the record to it's array
-                    /* if(r.record.has_reflection_data) reflectivity.push(r)
-                    if(r.record.has_doppler_data)    doppler.push(r) */
-                    if(r.record.reflect)             high_reflectivity.push(r)
-                    if(r.record.velocity)            high_velocity.push(r)
-                    if(r.record.spectrum)            high_spectrum.push(r)
-                    if(r.record.zdr)                 high_diff_reflectivity.push(r)
-                    if(r.record.phi)                 high_diff_phase.push(r)
-                    if(r.record.rho)                 high_corre_coefficient.push(r)
+                    // If data is found, push the record to the data array
+                    if(r.record.reflect)             data.push(r)
+                    if(r.record.velocity)            data.push(r)
+                    if(r.record.spectrum)            data.push(r)
+                    if(r.record.zdr)                 data.push(r)
+                    if(r.record.phi)                 data.push(r)
+                    if(r.record.rho)                 data.push(r)
 
                 }
 
                 // sort and group the scans by elevation asc
-                if(high_reflectivity.length)      this.reflectivity_highres            = this.groupAndSortScans(high_reflectivity)
-                if(high_velocity.length)          this.velocity_highres                = this.groupAndSortScans(high_velocity)
-                if(high_spectrum.length)          this.spectrum_highres                = this.groupAndSortScans(high_spectrum)
-                if(high_diff_reflectivity.length) this.diff_reflectivity_highres       = this.groupAndSortScans(high_diff_reflectivity)
-                if(high_diff_phase.length)        this.diff_phase_highres              = this.groupAndSortScans(high_diff_phase)
-                if(high_corre_coefficient.length) this.correlation_coefficient_highres = this.groupAndSortScans(high_corre_coefficient)
+                this.data = this.groupAndSortScans(data)
 
                 resolve(true)
             })

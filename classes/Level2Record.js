@@ -95,52 +95,53 @@ class Level2Record {
             let parser = new Level2Parser(raf, data_block_pointer, this._record_offset)
             let data = {
                 gate_count: parser.getDataBlockShort(8),
-                first_gate: parser.getDataBlockShort(10),
-                gate_size: parser.getDataBlockShort(12),
-                rf_threshold: parser.getDataBlockShort(14),
-                snr_threshold: parser.getDataBlockShort(16),
-                scale: parser.getDataBlockInt(20),
-                offset: parser.getDataBlockInt(24),
+                first_gate: parser.getDataBlockShort(10) / 1000, // scale int to float 0.001 precision
+                gate_size: parser.getDataBlockShort(12) / 1000, // scale int to float 0.001 precision
+                rf_threshold: parser.getDataBlockShort(14) / 10, // scale int to float 0.1 precision
+                snr_threshold: parser.getDataBlockShort(16) / 1000, // scale int to float 0.001 precision
+                data_size: parser.getDataBlockByte(19),
+                scale: parser.getDataBlockFloat(20),
+                offset: parser.getDataBlockFloat(24),
                 data_offset: data_block_pointer + 28,
                 moment_data: []
             }
             
             switch(type) {
                 case 'REF':
-                    for(let i = 28; i <= 1867; i += 4) {
-                        data.moment_data.push((parser.getDataBlockInt(i) - data.offset) / data.scale)
+                    for(let i = 28; i <= 1867; i++) {
+                        data.moment_data.push((parser.getDataBlockByte(i) - data.offset) / data.scale)
                     }
                     record.reflect = data
                     break
                 case 'VEL':
-                    for(let i = 28; i <= 1227; i += 4) {
-                        data.moment_data.push((parser.getDataBlockInt(i) - data.offset) / data.scale)
+                    for(let i = 28; i <= 1227; i++) {
+                        data.moment_data.push((parser.getDataBlockByte(i) - data.offset) / data.scale)
                     }
                     record.velocity = data
                     break
                 case 'SW':
-                    for(let i = 28; i <= 1227; i += 4) {
-                        data.moment_data.push((parser.getDataBlockInt(i) - data.offset) / data.scale)
+                    for(let i = 28; i <= 1227; i++) {
+                        data.moment_data.push((parser.getDataBlockByte(i) - data.offset) / data.scale)
                     }
                     record.spectrum = data
                     break
                 case 'ZDR':
-                    for(let i = 28; i <= 1227; i += 4) {
-                        data.moment_data.push((parser.getDataBlockInt(i) - data.offset) / data.scale)
+                    for(let i = 28; i <= 1227; i++) {
+                        data.moment_data.push((parser.getDataBlockByte(i) - data.offset) / data.scale)
                     }
                     record.zdr = data
                     break
-                case 'PHI':  
-                    for(let i = 28; i <= 1227; i += 4) {
-                        data.moment_data.push((parser.getDataBlockInt(i) - data.offset) / data.scale)
+                /* case 'PHI':  
+                    for(let i = 28; i <= 1227; i += 2) {
+                        data.moment_data.push((parser.getDataBlockShort(i) - data.offset) / data.scale)
                     }
                     record.phi = data
-                    break
+                    break */
                 case 'RHO':
                     // RHO - getting indexing errors - !!FIX!!
-                    /* for(let i = 28; i <= 1227; i += 4) {
-                        data.moment_data.push((parser.getDataBlockInt(i) - data.offset) / data.scale)
-                    } */
+                    for(let i = 28; i <= 1227; i++) {
+                        data.moment_data.push((parser.getDataBlockByte(i) - data.offset) / data.scale)
+                    }
                     record.rho = data
                     break
             }

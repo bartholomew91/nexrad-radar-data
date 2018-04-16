@@ -6,5 +6,10 @@ Math.radians = function(degrees) {
 }
 
 new Level2Radar(file_to_load).then(radar => {
-    console.log(radar.getHighresReflectivity())
+    //console.log(radar.getHighresReflectivity())
+    let reflectivity = radar.getHighresReflectivity()
+    let azimuth = radar.getAzimuth()
+
+    console.log(reflectivity)
+    console.log(azimuth)
 })
