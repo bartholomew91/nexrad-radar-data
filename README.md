@@ -9,10 +9,11 @@ You can find more information on how radar data is encoded at [NOAA](https://www
 ## Contents
 1. [Install](#install)
 2. [Usage](#usage)
-3. [API](#api)
-4. [Known Issues](#known-issues)
-5. [ToDo](#todo)
-6. [License](#license)
+3. [Examples](#examples)
+4. [API](#api)
+5. [Known Issues](#known-issues)
+6. [ToDo](#todo)
+7. [License](#license)
 
 
 ## Install
@@ -30,6 +31,9 @@ new Level2Radar(file_to_load).then(radar => {
     console.log(radar.getHighresReflectivity())
 })
 ```
+
+## Examples
+You can find an example of using the library [HERE](https://github.com/bartholomew91/nexrad-webgl-plotter)
 
 ## API
 
