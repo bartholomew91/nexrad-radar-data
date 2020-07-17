@@ -117,12 +117,12 @@ class Level2Radar {
                     if(r.message_type != 1 && r.message_type != 31) continue
 
                     // If data is found, push the record to the data array
-                    if(r.record.reflect)             data.push(r)
-                    if(r.record.velocity)            data.push(r)
-                    if(r.record.spectrum)            data.push(r)
-                    if(r.record.zdr)                 data.push(r)
-                    if(r.record.phi)                 data.push(r)
-                    if(r.record.rho)                 data.push(r)
+					if( r.record.reflect ||
+						r.record.velocity ||
+						r.record.spectrum ||
+						r.record.zdr ||
+						r.record.phi ||
+						r.record.rho) data.push(r)
 
                 }
 
@@ -154,10 +154,10 @@ class Level2Radar {
              * string so that javascript doesn't freak out 
              * look into fixing !!
              */
-            if(groups[elevation_number + '']) {
-                groups[elevation_number + ''].push(scan)
+            if(groups[elevation_number]) {
+                groups[elevation_number].push(scan)
             } else {
-                groups[elevation_number + ''] = [scan]
+                groups[elevation_number] = [scan]
             }
         })
 
