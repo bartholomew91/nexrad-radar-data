@@ -191,7 +191,7 @@ class Level2Record {
                 rs: raf.readByte(),
                 elevation_number: raf.readByte(),
                 cut: raf.readByte(),
-                elevation: raf.readFloat(),
+                elevation_angle: raf.readFloat(),
                 rsbs: raf.readByte(),
                 aim: raf.readByte(),
                 dcount: raf.readShort()
