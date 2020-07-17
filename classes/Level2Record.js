@@ -37,7 +37,7 @@ class Level2Record {
             tx_horizontal: parser.getDataBlockFloat(24),
             tx_vertical: parser.getDataBlockFloat(28),
             differential_reflectivity: parser.getDataBlockFloat(32),
-            volume_coverage_pattern: parser.getDataBlockByte(40)
+            volume_coverage_pattern: parser.getDataBlockShort(40)
         }
 
         record.volume = data
