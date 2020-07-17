@@ -28,7 +28,7 @@ class Level2Record {
             name: parser.getDataBlockString(1, 3),
             size: parser.getDataBlockShort(4),
             version_major: parser.getDataBlockByte(6),
-            version_miner: parser.getDataBlockByte(7),
+            version_minor: parser.getDataBlockByte(7),
             latitude: parser.getDataBlockFloat(8),
             longitude: parser.getDataBlockFloat(12),
             elevation: parser.getDataBlockShort(16),
