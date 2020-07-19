@@ -15,18 +15,30 @@ class RandomAccessFile {
         this.buffer = null
         this.bigEndian = false
 
-        return new Promise(resolve => {
-            this.loadFile(file).then(data => {
-                this.buffer = Buffer.from(data, "binary")
-                resolve(this)
-            })
-        })
+		// load a file if a string was provided
+		if (typeof file === 'string') {
+			return new Promise(resolve => {
+				this.loadFile(file).then(data => {
+					this.buffer = Buffer.from(data, "binary")
+					resolve(this)
+				})
+			})
+		} else {
+			// load the buffer directly
+			this.buffer = file;
+			return this;
+		}
     }
 
     // return the current buffer length
     getLength() {
         return this.buffer.length
     }
+
+	// return the current position in the file
+	getPos() {
+		return this.offset;
+	}
 
     // load the file into the buffer
     loadFile(file) {

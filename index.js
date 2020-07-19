@@ -1,6 +1,7 @@
 const { RandomAccessFile } = require('./classes/RandomAccessFile')
 const { Level2Record } = require('./classes/Level2Record')
 const { BIG_ENDIAN, FILE_HEADER_SIZE } = require('./constants')
+const decompress = require('./decompress');
 
 class Level2Radar {
     constructor(file) {
@@ -91,8 +92,11 @@ class Level2Radar {
             new RandomAccessFile(file).then(raf => {
                 let data = []
 
+				// decompress file if necessary, returns original file if no compression exists
+				raf = decompress(raf);
+
                 raf.endianOrder(BIG_ENDIAN) // Set binary ordering to Big Endian
-                raf.seek(FILE_HEADER_SIZE) // Jump to the bytes at 24, past the file header
+				raf.seek(FILE_HEADER_SIZE) // Jump to the bytes at 24, past the file header
 
                 let message_offset31 = 0 // the current message 31 offset
                 let recno = 0 // the record number
@@ -129,7 +133,7 @@ class Level2Radar {
                 // sort and group the scans by elevation asc
                 this.data = this.groupAndSortScans(data)
 
-                resolve(true)
+				resolve(true)
             })
         })
     }
