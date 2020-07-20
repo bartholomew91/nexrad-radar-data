@@ -48,7 +48,29 @@ class Level2Radar {
             }
             return scans
         }
-    }
+	}
+
+	// return message_header information
+	getHeader() {		
+		return {
+			id: this.data[this.elevation][this.scan].record.id,
+			mseconds: this.data[this.elevation][this.scan].record.mseconds,
+			julian_date: this.data[this.elevation][this.scan].record.julian_date,
+			radial_number: this.data[this.elevation][this.scan].record.radial_number,
+			azimuth: this.data[this.elevation][this.scan].record.azimuth,
+			compress_idx: this.data[this.elevation][this.scan].record.compress_idx,
+			sp: this.data[this.elevation][this.scan].record.sp,
+			radial_length: this.data[this.elevation][this.scan].record.radial_length,
+			ars: this.data[this.elevation][this.scan].record.ars,
+			rs: this.data[this.elevation][this.scan].record.rs,
+			elevation_number: this.data[this.elevation][this.scan].record.elevation_number,
+			cut: this.data[this.elevation][this.scan].record.cut,
+			elevation: this.data[this.elevation][this.scan].record.elevation,
+			rsbs: this.data[this.elevation][this.scan].record.rsbs,
+			aim: this.data[this.elevation][this.scan].record.aim,
+			dcount: this.data[this.elevation][this.scan].record.dcount,
+		};
+	}
 
     // return velocity data for the current elevation and scan
     getHighresVelocity() {
