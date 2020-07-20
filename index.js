@@ -115,47 +115,48 @@ class Level2Radar {
                 let data = []
 
 				// decompress file if necessary, returns original file if no compression exists
-				raf = decompress(raf);
+				raf = decompress(raf).then(raf=>{
 
-                raf.endianOrder(BIG_ENDIAN) // Set binary ordering to Big Endian
-				raf.seek(FILE_HEADER_SIZE) // Jump to the bytes at 24, past the file header
+					raf.endianOrder(BIG_ENDIAN) // Set binary ordering to Big Endian
+					raf.seek(FILE_HEADER_SIZE) // Jump to the bytes at 24, past the file header
 
-                let message_offset31 = 0 // the current message 31 offset
-                let recno = 0 // the record number
+					let message_offset31 = 0 // the current message 31 offset
+					let recno = 0 // the record number
 
-                /**
-                 * Loop through all of the messages
-                 * contained within the radar archive file.
-                 * Save all the data we find to it's respective array
-                 */
-                while(true) {
+					/**
+					 * Loop through all of the messages
+					 * contained within the radar archive file.
+					 * Save all the data we find to it's respective array
+					 */
+					while(true) {
 
-                    let r = new Level2Record(raf, recno++, message_offset31)
+						let r = new Level2Record(raf, recno++, message_offset31)
 
-                    if(r.finished) break // no more messages, exit the loop
+						if(r.finished) break // no more messages, exit the loop
 
-                    if(r.message_type === 31) {
-                        // found a message 31 type, update the offset
-                        message_offset31 = message_offset31 + (r.message_size * 2 + 12 - 2432)
-                    }
+						if(r.message_type === 31) {
+							// found a message 31 type, update the offset
+							message_offset31 = message_offset31 + (r.message_size * 2 + 12 - 2432)
+						}
 
-                    // skip any messages that aren't type of 1 (generic radar data) or 31 (highres radar data)
-                    if(r.message_type != 1 && r.message_type != 31) continue
+						// skip any messages that aren't type of 1 (generic radar data) or 31 (highres radar data)
+						if(r.message_type != 1 && r.message_type != 31) continue
 
-                    // If data is found, push the record to the data array
-					if( r.record.reflect ||
-						r.record.velocity ||
-						r.record.spectrum ||
-						r.record.zdr ||
-						r.record.phi ||
-						r.record.rho) data.push(r)
+						// If data is found, push the record to the data array
+						if( r.record.reflect ||
+							r.record.velocity ||
+							r.record.spectrum ||
+							r.record.zdr ||
+							r.record.phi ||
+							r.record.rho) data.push(r)
 
-                }
+					}
 
-                // sort and group the scans by elevation asc
-                this.data = this.groupAndSortScans(data)
+					// sort and group the scans by elevation asc
+					this.data = this.groupAndSortScans(data)
 
-				resolve(true)
+					resolve(this)
+				});
             })
         })
     }

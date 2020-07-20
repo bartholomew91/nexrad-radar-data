@@ -24,9 +24,11 @@ class RandomAccessFile {
 				})
 			})
 		} else {
-			// load the buffer directly
-			this.buffer = file;
-			return this;
+			// load the buffer directly and return a promise for consistency
+			return new Promise(resolve => {
+				this.buffer = file;
+				resolve(this);
+			})
 		}
     }
 
